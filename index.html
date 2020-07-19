@@ -1,0 +1,910 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <!--<meta http-equiv="refresh" content="0;URL='http://garageregistry.com/'" />  -->
+    <title>Garage Registry</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://malsup.github.com/jquery.cycle.all.js"></script>
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+    <script type="text/javascript" src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <!--
+        <script type="text/javascript" src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.0a4.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+    -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="robots" content="index,follow" />
+    <meta name="Accept-Encoding" content="gzip" />
+    <meta name="keywords" content="auto, car, photo, photography, pictures deb design NorthTexasWebsiteDesign.com" />
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body>
+    <div id="titlebar" class="titlebar" >
+        <center>
+            <div class="row siteTitle">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                    <img src="images/logo.png" height="70px" />
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"></div>
+                <div id="nav" class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <ul class="nav navbar-nav blackmenu">
+                        <li>
+                            <a id="homeMenu" class="blackmenu" href="#Home" onclick='showPage("home.php", "homeMenu");'>Home</a>
+                        </li>
+                        <li>
+                            <a id="photoMenu" class="blackmenu" href="#Photos" onclick='showPage("photos.php", "photoMenu");'>Photos</a>
+                        </li>
+                        <li class="hidden-xs hidden-sm">
+                            <a id="partsMenu" class="blackmenu" href="#Parts" onclick='showPage("parts.php", "partsMenu");'>Parts Catalog</a>
+                        </li>
+                        <li class="hidden-xs hidden-sm hidden-md hidden-lg">
+                            <a id="prosMenu" class="blackmenu" href="#Pros" onclick='showPage("pros.php", "prosMenu");'>Find Local Pros</a>
+                        </li>
+                        <li class="hidden-xs hidden-sm hidden-md hidden-lg">
+                            <a id="courseMenu" class="blackmenu" href="#Course" onclick='showPage("course.php", "courseMenu");'>Courses</a>
+                        </li>
+                        <li class="hidden-xs">
+                            <a id="forumMenu" class="blackmenu" href="#Forum" onclick='showPage("forum.php", "forumMenu");'>Forum</a>
+                        </li>
+                        <li id="liLogin" class="hidden-lg">
+                            <a href="javascript:void(0);" class="blackmenu" data-toggle="modal" data-target="#loginModal">SIGN IN</a>
+                        </li>
+                        <li id="liRegister" class="hidden-lg">
+                            <a href="javascript:void(0);" class="blackmenu" data-toggle="modal" data-target="#registerModal">Register</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="nav" class="col-lg-2 hidden-xs hidden-sm hidden-md" style="background-color:red;height:70px">
+                    <div class="garageaccess">GARAGE ACCESS</div>
+                    <span id="liLogin2">
+                        <a href="javascript:void(0);" class="redlogin" data-toggle="modal" data-target="#loginModal">SIGN IN</a>
+                    </span>
+                    <span class="redor"> or </span>
+                    <span id="liRegister2">
+                        <a href="javascript:void(0);" class="redlogin" data-toggle="modal" data-target="#registerModal">Register</a>
+                    </span>
+                    <!--<div class="blackmenu">Garage Access</div>
+                    <ul class="nav navbar-nav hidden-md hidden-sm hidden-xs">
+                        <li id="liLogin2">
+                            <a href="#" class="blackmenu" data-toggle="modal" data-target="#loginModal">Login</a>
+                        </li>
+                        <li class="blackmenu">or</li>
+                        <li id="liRegister2">
+                        </li>
+                    </ul>-->
+                </div>
+        </center>
+    </div>
+    <div id="header">
+        <img id="headerImage" src="images/2018JaguarF.jpg" width="100%"/>
+    </div>
+    <div id="MainBody"></div>
+    <div id="placeHolder"></div>
+    <div id="copyright" class="copyright">
+        <div class="container">
+            <div class="col-md-5">
+                <p>© 2017 Garage Registry Inc. <arr>All Rights Reserved</arr></p>
+            </div>
+            <div class="col-md-7 hidden-xs hidden-sm">
+                <ul class="bottom_ul">
+                    <li id="cont"><a href="javascript:void(0);">About Garage Registry</a></li>
+                    <li id="cont"><a href="javascript:void(0);">Join our Team</a></li>
+                    <li class="hidden-md" id="cont"><a href="javascript:void(0);">Tell us what you think</a></li>
+                    <li><a href="http://NorthTexasWebsiteDesign.com" target="_blank">NorthTexasWebsiteDesign.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="registerModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Register</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+                                <img src="images/JoinNowPageGraphic.jpg" />
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-8 col-xs-12">
+                                <img class="hidden-sm hidden-xs" src="images/facebook.jpg" />
+                                <input id="registerEmail" type="email" class="form-control" placeholder="Email" />
+                                <input id="registerUser" type="text" class="form-control" placeholder="User Name" />
+                                <input id="registerZip" type="number" class="form-control" placeholder="Zip Code" />
+                                <input id="registerPassword" type="password" class="form-control" placeholder="Password" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a id="lnkRegisterRegister" href="#MyGarage" class="btn btn-primary btn-block" 
+                       onclick="registerUser();">Register</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Login</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <input id="loginUsername" type="email" class="form-control" placeholder="User Name" />
+                            <br />
+                            <input id="loginPassword" type="password" class="form-control" placeholder="Password" />
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+                <div class="modal-footer">
+                    <a id="lnkLoginLogin" href="#MyGarage" class="btn btn-primary btn-block" 
+                       onclick="loginUser(
+                                    $('#loginUsername').val(),
+                                    $('#loginPassword').val()
+                                );">Login</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="titlePictureModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Title Picture</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form id="frmTitlePictureUpload" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input id="titlePictureID" type="hidden" class="form-control" />
+                            <input id="titlePictureActive" type="hidden" class="form-control" />
+                            <input id="titlePictureFilename" type="hidden" class="form-control" />
+                            <label for="titlePictureLocation">Title:</label>
+                            <input id="titlePictureTitle" name="titlePictureTitle" type="text" 
+                                   class="form-control" placeholder="Title" />
+                            <br />
+                            <label for="titlePictureLocation">Photo:</label>
+                            <div id="titlePictureUpload">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel" style="border: 2px white">
+                                            <input class="hidden" onchange="cleanFilename($(this).val(), 'trimFile', 'fileLabel')"
+                                                type="file" id="titleFileToUpload" name="titleFileToUpload" 
+                                                accept=".jpg,.gif,.png,.jpeg" />
+                                            <label class="btn btn-primary" for="titleFileToUpload">Select file</label>
+                                            <label id="fileLabel">No file chosen yet</label>
+                                        </div>
+                                        <div id="uploadStatus"></div>
+                                        <input type="hidden" id="trimFile" name="trimFile" />
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="" id="titlePicture" width="100%" />
+                            <br />
+                            <div class="form-group">
+                                <label for="titlePictureLocation">Location:</label>
+                                <select class="form-control" id="titlePictureLocation" name="titlePictureLocation">
+                                    <option value="Home">Home</option>
+                                    <option value="Photos">Photos</option>
+                                    <option value="Parts & Tools">Parts & Tools</option>
+                                    <option value="Find Local Pros">Find Local Pros</option>
+                                    <option value="Courses">Courses</option>
+                                    <option value="Forum">Forum</option>
+                                    <option value="My Garage">My Garage</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+                <div class="modal-footer">
+                    <a id="addTitlePictureButton" href="#TitlePictureManagement" class="btn btn-primary btn-block"
+                       onclick="uploadTitlePicture();">Add Title Picture</a>
+                    <a id="updateTitlePictureButton" href="#TitlePictureManagement" class="btn btn-primary btn-block"
+                       onclick="updateTitlePicture(
+                                encode($('#titlePictureTitle').val()),
+                                $('#titlePictureFilename').val(),
+                                $('#titlePictureLocation').val(),
+                                $('#titlePictureActive').val(),
+                                $('#titlePictureID').val());">Update Title Picture</a>
+                </div>
+                <!--function updateNews(caption, link, source, imagepath, active, id) {-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editNewsModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">News</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form role="form" id="frmNewsUpload">
+                        <div class="form-group">
+                            <input id="editNewsID" type="hidden" class="form-control" />
+                            <input id="editNewsActive" type="hidden" class="form-control" />
+                            <label for="titlePictureLocation">Caption:</label>
+                            <input id="editNewsCaption" name="editNewsCaption" type="text" class="form-control" placeholder="Caption" />
+                            <br />
+                            <label for="titlePictureLocation">Link to story:</label>
+                            <input id="editNewsLink" name="editNewsLink" type="text" class="form-control" placeholder="Hyperlink" />
+                            <br />
+                            <label for="titlePictureLocation">News Source:</label>
+                            <input id="editNewsSource" name="editNewsSource" type="text" class="form-control" placeholder="News Source" />
+                            <br />
+                            <label for="titlePictureLocation">Image:</label>
+                            <img src="" id="editNewsImagePath" height="100px;" />
+                            <div id="editNewsPictureUpload">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel" style="border: 2px white">
+                                            <input class="hidden" onchange="cleanNewsFilename($(this).val())"
+                                                   type="file" id="editNewsFileToUpload" name="editNewsFileToUpload"
+                                                   accept=".jpg,.gif,.png,.jpeg" />
+                                            <label class="btn btn-primary" for="editNewsFileToUpload">Select file</label>
+                                            <label id="fileNewsLabel">No file chosen yet</label>
+                                        </div>
+                                        <input type="hidden" id="trimNewsFile" name="trimNewsFile" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+                <div class="modal-footer">
+                    <a id="updateNewsButton" href="#NewsManagement" class="btn btn-primary btn-block"
+                       onclick="updateNews(
+                                    encode($('#editNewsCaption').val()),
+                                    encode($('#editNewsLink').val()),
+                                    encode($('#editNewsSource').val()),
+                                    $('#editNewsActive').val(),
+                                    $('#editNewsID').val());">Update News Article</a>
+                    <a id="addNewsButton" href="#NewsManagement" class="btn btn-primary btn-block"
+                       onclick="uploadNews();">Add News Article</a>
+                </div>
+                <!--function updateNews(caption, link, source, imagepath, active, id) {-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editStockPhotoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Stock Photo</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form  id="frmStockPictureUpload" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input id="stockPhotoID" type="hidden" class="form-control" />
+                            <input id="stockPhotoActive" name="stockPhotoActive" type="hidden" class="form-control" />
+                            <label for="titlePictureLocation">Title:</label>
+                            <input id="stockPhotoTitle" name="stockPhotoTitle" type="text" class="form-control"
+                                   placeholder="Title" />
+                            <br />
+                            <label for="titlePictureLocation">Photo:</label>
+                            <div id="stockPictureUpload">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel" style="border: 2px white">
+                                            <input class="hidden" onchange="cleanStockFilename($(this).val())"
+                                                   type="file" id="stockFileToUpload" name="stockFileToUpload"
+                                                   accept=".jpg,.gif,.png,.jpeg" />
+                                            <label class="btn btn-primary" for="stockFileToUpload">Select file</label>
+                                            <label id="stockLabel">No file chosen yet</label>
+                                        </div>
+                                        <div id="uploadStatus"></div>
+                                        <input type="hidden" id="trimStockFile" name="trimStockFile" />
+                                    </div>
+                                </div>
+                            </div>
+                            <img id="stockPhotoFilename" src="" height="200px" />
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                    <a id="addStockPictureButton" href="#StockPhotosManagement" class="btn btn-primary btn-block disabled"
+                       onclick="uploadStockImage();">Add Stock Photo</a>
+                    <a id="updateStockPictureButton" href="#StockPhotosManagement" class="btn btn-primary btn-block"
+                       onclick="updateStockImages(
+                                    $('#stockPhotoID').val(),
+                                    encode($('#stockPhotoTitle').val()),
+                                    $('#stockPhotoActive').val()
+                                );">Update Stock Photo</a>
+                </div>
+                <!--function updateNews(caption, link, source, imagepath, active, id) {-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editUsersModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">User</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <input id="editUsersID" type="hidden" class="form-control" />
+                            <input id="editUsersActive" type="hidden" class="form-control" />
+                            <label for="titlePictureLocation">Username:</label>
+                            <input id="editUsersUsername" type="text" class="form-control" placeholder="Username" />
+                            <br />
+                            <label for="titlePictureLocation">Password:</label>
+                            <input id="editUsersPassword" type="password" class="form-control" placeholder="Password" />
+                            <br />
+                            <label for="titlePictureLocation">Email:</label>
+                            <input id="editUsersEmail" type="email" class="form-control" placeholder="Email" />
+                            <br />
+                            <label for="titlePictureLocation">Zip Code:</label>
+                            <input id="editUsersZipcode" type="number" class="form-control" placeholder="Zip Code" />
+                            <br />
+                            <label for="titlePictureLocation">Access Level:</label>
+                            <input id="editUsersLevel" type="checkbox"> Admin
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                    <a href="#UsersManagement" class="btn btn-primary btn-block"
+                       onclick="updateUsers(
+                                    encode($('#editUsersUsername').val()),
+                                    encode($('#editUsersPassword').val()),
+                                    encode($('#editUsersEmail').val()),
+                                    encode($('#editUsersZipcode').val()),
+                                    ($('#editUsersLevel').prop('checked') == true) ? 'admin' : 'standard',
+                                    $('#editUsersID').val(),
+                                    $('#editUsersActive').val()
+                                );">Save</a>
+                </div>
+                <!--function updateNews(caption, link, source, imagepath, active, id) {-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="showPicModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title" id="showPicTitle"></h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <div id="showPicPic"></div>
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                </div>
+                <!--function updateNews(caption, link, source, imagepath, active, id) {-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="showForumEditor">
+        <div class="modal-dialog" style="min-width:70%">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div id="forumEditorTitle"><h3>Forum Editor</h3></div>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form id="editForumForm" name="editForumForm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="hidden" id="editParentObject" name="editParentObject" />
+                            <input type="hidden" id="editParentID" name="editParentID" />
+                            <input type="hidden" id="editTMUserID" name="editTMUserID" />
+                            <input type="hidden" id="editForumID" name="editForumID" />
+                            <input type="hidden" id="editForumProjectID" name="editForumProjectID" />
+                            <input type="hidden" id="editForumActive" name="editForumActive" />
+                            <label for="editForumTitle">Title</label>
+                            <input type="text" class="form-control" id="editForumTitle" name="editForumTitle" />
+                            <label for="editForumMessage">Message</label>
+                            <input type="text" class="form-control" id="editForumMessage" name="editForumMessage" />
+
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                    <a id="editForumSaveButton" href="javascript:void();" class="btn btn-primary btn-block"
+                       onclick="saveForum(
+                                    $('#editForumID').val(),
+                                    $('#editParentObject').val(),
+                                    $('#editParentID').val(),
+                                    $('#editTMUserID').val(),
+                                    $('#editForumActive').val(),
+                                    encode($('#editForumTitle').val()),
+                                    $('#editForumProjectID').val(),
+                                    encode($('#editForumMessage').summernote('code')),
+                                    '1'
+                                );">Save</a>
+                </div>
+                <!--function updateNews(caption, link, source, imagepath, active, id) {-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="updateCoverPhotoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title" id="showPicTitle">Update Cover Photo</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form id="editCoverPhotoForm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input id="editCoverPhotoUserID" name="editCoverPhotoUserID" type="hidden" />
+                            <label for="editCoverPhotoPhoto">Photo:</label>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel" style="border: 2px white">
+                                        <input class="hidden" onchange="cleanFilename($(this).val(), 'trimCoverPhotoFile', 'fileCoverPhotoLabel')"
+                                               type="file" id="editCoverPhotoPhoto" name="editCoverPhotoPhoto"
+                                               accept=".jpg,.gif,.png,.jpeg" />
+                                        <label class="btn btn-primary" for="editCoverPhotoPhoto">Select file</label>
+                                        <label id="fileCoverPhotoLabel">No file chosen yet</label>
+                                    </div>
+                                    <div id="editCoverPhotoStatus"></div>
+                                    <input type="hidden" id="trimCoverPhotoFile" name="trimCoverPhotoFile" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                    <a id="editCoverPhotoButton" href="javascript:void();" class="btn btn-primary btn-block"
+                       onclick="saveCoverPhoto(
+                                    $('#editCoverPhotoUserID').val(),
+                                    $('#editCoverPhotoPhoto').val(),
+                                    'editCoverPhotoStatus'
+                                );">Update</a>
+                </div>
+                <!--function updateNews(caption, link, source, imagepath, active, id) {-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editProfilePictureModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title" id="showPicTitle">Update Profile Photo</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form id="editProfilePictureForm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input id="editProfilePictureUserID" name="editProfilePictureUserID" type="hidden" />
+                            <label for="editProfilePicturePhoto">Photo:</label>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="panel" style="border: 2px white">
+                                        <input class="hidden" onchange="cleanFilename($(this).val(), 'trimProfilePictureFile', 'fileProfilePictureLabel')"
+                                               type="file" id="editProfilePicturePhoto" name="editProfilePicturePhoto"
+                                               accept=".jpg,.gif,.png,.jpeg" />
+                                        <label class="btn btn-primary" for="editProfilePicturePhoto">Select file</label>
+                                        <label id="fileProfilePictureLabel">No file chosen yet</label>
+                                    </div>
+                                    <div id="editProfilePictureStatus"></div>
+                                    <input type="hidden" id="trimProfilePictureFile" name="trimProfilePictureFile" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                    <a id="editProfilePictureButton" href="javascript:void();" class="btn btn-primary btn-block"
+                       onclick="saveProfilePicture();">Update</a>
+                </div>
+                <!--function updateNews(caption, link, source, imagepath, active, id) {-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editProjectPartsModal">
+        <div class="modal-dialog" style="min-width:70%;max-width:100%;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title" id="showPicTitle">Project Part</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form id="editProjectPartsForm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input id="editProjectPartProjectID" name="editProjectPartProjectID" type="hidden" />
+                                    <input id="editProjectPartID" name="editProjectPartID" type="hidden" />
+                                    <label for="editProjectPartTitle">Title:</label>
+                                    <input type="text" id="editProjectPartTitle" name="editProjectPartTitle" class="form-control" />
+                                    <label for="editProjectPartDescription">Description:</label>
+                                    <textarea rows="12" id="editProjectPartDescription" name="editProjectPartDescription" class="form-control"></textarea>
+                                    <label for="editProjectPartLabel">Price Paid:</label>
+                                    <input type="text" id="editProjectPartPrice" name="editProjectPartPrice" class="form-control" />
+                                    <label for="editProjectPartLabel">Vendor Link:</label>
+                                    <input type="text" id="editProjectPartVendor" name="editProjectPartVendor" class="form-control" />
+                                </div>
+                                <div class="col-lg-8">
+                                    <label for="editProjectPartPhoto">Photo:</label>
+                                    <div id="editProjectPartPhotoShowPictureContainer">
+                                        <img id="editProjectPartPhoto" src="" width="100%" />
+                                    </div>
+                                    <div id="editProjectPartPhotoGetPictureContainer">
+                                        <div class="panel" style="border: 2px white">
+                                            <input class="hidden" onchange="cleanFilename($(this).val(), 'trimEditProjectPartGetPhotoFile', 'editProjectPartGetPhotoLabel')"
+                                                   type="file" id="editProjectPartGetPhoto" name="editProjectPartGetPhoto"
+                                                   accept=".jpg,.gif,.png,.jpeg" />
+                                            <label class="btn btn-primary" for="editProjectPartGetPhoto">Select file</label>
+                                            <label id="editProjectPartGetPhotoLabel">No file chosen yet</label>
+                                        </div>
+                                        <div id="editProjectPartGetPhotoStatus"></div>
+                                        <input type="hidden" id="trimEditProjectPartGetPhotoFile" name="trimEditProjectPartGetPhotoFile" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-4">
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a id="editProjectPartSaveButton" href="javascript:void();" class="btn btn-primary btn-block"
+                                       onclick="saveProjectPart(
+                                            $('#editProjectPartProjectID').val(),
+                                            $('#editProjectPartID').val(),
+                                            $('#editProjectPartTitle').val(),
+                                            $('#editProjectPartDescription').val(),
+                                            $('#editProjectPartPrice').val(),
+                                            $('#editProjectPartVendor').val(),
+                                            '1');">Save</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a id="editProjectPartHideButton" href="javascript:void();" class="btn btn-danger btn-block"
+                                       onclick="saveProjectPart(
+                                            $('#editProjectPartProjectID').val(),
+                                            $('#editProjectPartID').val(),
+                                            $('#editProjectPartTitle').val(),
+                                            $('#editProjectPartDescription').val(),
+                                            $('#editProjectPartPrice').val(),
+                                            $('#editProjectPartVendor').val(),
+                                            '0');">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--function updateNews(caption, link, source, imagepath, active, id) {-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editProjectPictureModal">
+        <div class="modal-dialog" style="min-width:70%;max-width:100%;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title" id="showPicTitle">Project Photo</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <form id="editProjectPictureForm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input id="editProjectPictureID" name="editProjectPictureID" type="hidden" />
+                                    <input id="editProjectPictureActive" name="editProjectPictureActive" type="hidden" />
+                                    <input id="editProjectPictureProjectID" name="editProjectPictureProjectID" type="hidden" />
+                                    <label for="editProjectPictureLabel">Title:</label>
+                                    <input type="text" id="editProjectPictureTitle" name="editProjectPictureTitle" class="form-control" />
+                                    <label for="editProjectPictureDescription">Description:</label>
+                                    <textarea rows="16" id="editProjectPictureDescription" name="editProjectPictureDescription" class="form-control"></textarea>
+                                    <label for="editProjectPictureCover">Cover Photo:</label>
+                                    <input id="editProjectPictureCover" name="editProjectPictureCover" type="checkbox">
+                                    <br />
+                                    One cover photo per project limit.
+                                </div>
+                                <div class="col-lg-8">
+                                    <label for="editProjectPicturePhoto">Photo:</label>
+                                    <div id="editProjectPicturePhotoShowPictureContainer">
+                                        <img id="editProjectPicturePhoto" src="" width="100%" />
+                                    </div>
+                                    <div id="editProjectPicturePhotoGetPictureContainer">
+                                        <div class="panel" style="border: 2px white">
+                                            <input class="hidden" onchange="cleanFilename($(this).val(), 'trimEditProjectPictureGetPhotoFile', 'editProjectPictureGetPhotoLabel')"
+                                                   type="file" id="editProjectPictureGetPhoto" name="editProjectPictureGetPhoto"
+                                                   accept=".jpg,.gif,.png,.jpeg" />
+                                            <label class="btn btn-primary" for="editProjectPictureGetPhoto">Select file</label>
+                                            <label id="editProjectPictureGetPhotoLabel">No file chosen yet</label>
+                                        </div>
+                                        <div id="editProjectPictureGetPhotoStatus"></div>
+                                        <input type="hidden" id="trimEditProjectPictureGetPhotoFile" name="trimEditProjectPictureGetPhotoFile" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-4">
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a id="editProjectPictureSaveButton" href="javascript:void();" class="btn btn-primary btn-block"
+                                       onclick="saveProjectPicture(
+                                            $('#editProjectPictureProjectID').val(),
+                                            $('#editProjectPictureID').val(),
+                                            encode($('#editProjectPictureTitle').val()),
+                                            encode($('#editProjectPictureDescription').val()),
+                                            ($('#editProjectPictureCover').prop('checked') == true) ? '1' : '0',
+                                            '1');">Save</a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a id="editProjectPictureHideButton" href="javascript:void();" class="btn btn-danger btn-block"
+                                       onclick="saveProjectPicture(
+                                            $('#editProjectPictureProjectID').val(),
+                                            $('#editProjectPictureID').val(),
+                                            encode($('#editProjectPictureTitle').val()),
+                                            encode($('#editProjectPictureDescription').val()),
+                                            ($('#editProjectPictureCover').prop('checked') == true) ? '1' : '0',
+                                            '0');">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--function updateNews(caption, link, source, imagepath, active, id) {-->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="imagePartPathDialog">
+        <div class="modal-dialog" style="min-width:40%;max-width:95%;">
+            <div class="modal-content">
+                <!-- header -->
+                <!-- body -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="showPicTitle">To share this image, copy and paste the link below...</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div id="divPartImagePath" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="display:inline-block;">
+                                <textarea class="form-control" rows="6" id="txtPartImagePath"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="imagePicturePathDialog">
+        <div class="modal-dialog" style="min-width:40%;max-width:95%;">
+            <div class="modal-content">
+                <!-- header -->
+                <!-- body -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="showPicTitle">To share this image, copy and paste the link below...</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div id="divPictureImagePath" class="col-lg-12 col-md-12 col-sm-12 col-xs-11" style="display:inline-block;">
+                                <textarea class="form-control" rows="6" id="txtPictureImagePath"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="savePartToProjectModal">
+        <div class="modal-dialog" style="min-width:80%;max-width:100%;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Save Part to Project</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <input type="hidden" id="txtPartToProjectProjectID" />
+                            <div class="col-lg-5">
+                                <div id="imgSavePartToProject"></div>
+                            </div>
+                            <div class="col-lg-7" style="font-size:16px;">
+                                Select a project you would like to add this part to.<br /><br />
+                                <u><b>Projects</b></u><br />
+                                <div id="savePartToProjectProjectList"></div>
+                                <br />or<br /><br />
+                                Create a new project for this part.
+                                <a href="#Project" onclick="showProject('-1');" class="btn btn-primary">Create New Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-6"></div>
+                        <div class="col-lg-3">
+                            <button id="btnPartToProjectSave" class="btn btn-primary btn-block"
+                                    onclick="savePartToProject();">
+                                Save
+                            </button>
+                        </div>
+                        <div class="col-lg-3">
+                            <button id="btnPartToProjectClose" class="btn btn-primary btn-block"
+                                    onclick="closeSavePartToProjectModal();">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="savePhotoToProjectModal">
+        <div class="modal-dialog" style="min-width:80%;max-width:100%;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Save Photo to Project</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <input type="hidden" id="txtPhotoToProjectProjectID" />
+                            <div class="col-lg-5">
+                                <div id="imgSavePhotoToProject"></div>
+                            </div>
+                            <div class="col-lg-7" style="font-size:16px;">
+                                Select a project you would like to add this photo to.<br /><br />
+                                <u><b>Projects</b></u><br />
+                                <div id="savePhotoToProjectProjectList"></div>
+                                <br />or<br /><br />
+                                Create a new project for this photo.
+                                <a href="#Project" onclick="showProject('-1');" class="btn btn-primary">Create New Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-6"></div>
+                        <div class="col-lg-3">
+                            <button id="btnPhotoToProjectSave" class="btn btn-primary btn-block"
+                                    onclick="savePhotoToProject();">
+                                Save
+                            </button>
+                        </div>
+                        <div class="col-lg-3">
+                            <button id="btnPhotoToProjectClose" class="btn btn-primary btn-block"
+                                    onclick="closeSavePhotoToProjectModal();">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="divProjectImagesFullScreenImage" style="position:absolute;left:0px;top:0px;width:100%;height:100%;"></div>
+    <div id="divProjectImagesFullScreenButtonBar"></div>
+    <div class="modal fade" id="systemMessageModal">
+        <div class="modal-dialog" style="min-width:30%;max-width:100%;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">System Message</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div id="systemMessage" class="col-lg-12" style="display:inline-block;">
+                                <div style="display:inline-table;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <button id="systemMessageCloseButton" class="btn btn-primary btn-block"
+                                    onclick="closeSystemMessageModal();">
+                                OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<!--<script>
+    window.addEventListener("orientationchange", function () {
+        location.reload();
+    }, false);
+
+</script>-->
+

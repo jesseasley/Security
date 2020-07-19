@@ -1,0 +1,716 @@
+﻿    .tooltip{}
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 200px;
+        background-color:silver;
+        color: #000;
+        text-align: left;
+        border-radius: 6px;
+        padding: 5px 5px 5px 5px;
+
+        /* Position the tooltip */
+        position: absolute;
+        z-index: 1;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+    .projectPhotos{
+        /*border:1px solid black;*/
+        height:117px;
+        width:100%;
+        overflow-x:scroll;
+        white-space:nowrap;
+    }
+    .projectImage{
+        height:100px;
+        width:100px;
+        background-image:url(images/circleplussmall.png);
+    }
+    .projectParts{
+        /*border:1px solid black;*/
+        height:117px;
+        width:100%;
+        overflow-x:scroll;
+        white-space:nowrap;
+    }
+    .UpdateCoverPhoto{
+        position:absolute;
+        top:420px;
+        right: 20px;
+        border:1px solid black ;
+        background-color: white;
+        padding:5px;
+        background:rgba(255,255,255,0.5); /*add semi-transparency*/
+        color:black;
+        text-decoration:none;
+    }
+    .UpdateCoverPhoto a{
+        text-decoration:none;
+        color:black;
+    }
+    #imgMyGaragePersonalPhoto{
+        height:250px;
+        width:250px;
+    }
+    .MyGaragePersonalPhoto{
+        position:absolute;
+        top:300px;
+        left:150px;
+        padding: 5px 0px 15px 0px;
+    }
+    #MyNewProjectProjectName{
+        font-weight:bold;
+        font-size:14px;
+        padding: 5px 0px 5px 0px;
+    }
+    #MyNewProjectYearMakeModel{
+        font-weight:bold;
+        font-size:12px;
+        padding: 5px 0px 10px 0px;
+    }
+    #MyNewProjectDescription{
+        font-size:10px;
+        border-bottom: 1px solid black;
+        border-top: 1px solid black;
+        padding: 5px 0px 5px 0px;
+    }
+    #divMyNewProjectPicContainer{
+        width:66%;
+        position:relative;
+    }
+    #imgMyNewProjectLeftPic{
+        position:absolute;
+        left:0px;
+        z-index:1;
+        border: 1px solid black;
+    }
+    #divMyNewProjectTargetPic{
+        width:70%;
+        position:relative;
+    }
+    #imgMyNewProjectTargetPic{
+        position:absolute;
+        max-width:1000px;
+        z-index:3;
+        border: 1px solid black;
+    }
+    #imgMyNewProjectRightPic{
+        position:absolute;
+        right:0px;
+        z-index:2;
+        border: 1px solid black;
+    }
+    #imgNewProjectPersonalPhoto{
+        height:50px;
+        width:50px;
+    }
+    .EditGaragePersonalPhoto{
+        position:absolute;
+        top:420px;
+        left: 10px;
+        border:1px solid black ;
+        background-color: white;
+        padding:5px;
+        background:rgba(255,255,255,0.5); /*add semi-transparency*/
+        color:black;
+        text-decoration:none;
+    }
+    .EditGaragePersonalPhoto a{
+        text-decoration:none;
+        color:black;
+    }
+    .background-image{
+        position:absolute;
+        top:0;
+        left:0;
+        display:block;
+        margin:auto;
+        width:100%
+    }
+
+    #nav ul li {
+	    list-style-type: none;
+	    text-align: center;
+	    float: left;
+	    margin: 0px;
+    }
+    #nav ul li a {
+	    text-decoration: none;
+	    color: black;
+	    display: block;
+	    padding: 10px;
+	    margin: 0px;
+        font-weight:bold;
+        line-height:50px;
+        text-align:center;
+    }
+    #nav ul li a:hover {
+	    color: #CD0000;
+    }
+    #nav ul li a.active{
+        color: red;
+    }
+    .blackmenu{
+        color:black;
+        font-size:18px;
+        margin-left:100px;
+    }
+    a.visited{
+        color:red;
+    }
+    .garageaccess{
+        color:white;
+        font-weight:bold;
+        font-size:18px;
+        font-stretch:ultra-condensed;
+        padding-top:5px;
+        padding-bottom:5px;
+    }
+    .redlogin{
+	    text-decoration: none;
+        font-size:16px;
+        color:white;
+        font-weight:bold;
+    }
+    .redor{
+        color:white;
+    }
+    header{
+        width:auto;
+    }
+    .projectBox{
+        height:250px;
+        width:250px;
+        border:1px solid black;
+        padding:5px;
+        margin:20px;
+        float:left;
+    }
+    footer{
+        width:auto;
+    }
+    .news-posting{
+        display:block;
+    }
+    .article-image{
+        height:150px;
+    }
+    .news-posting{
+        background-color:silver;
+    }
+        
+    .lgMenu{
+        position:absolute;
+        left:300px;
+        top:60px;
+        width:100%;
+    }
+
+    /* Smartphones (portrait) ----------- */
+    @media screen and (max-width: 750px){
+        #nav ul li a {
+            line-height:10px;
+        }
+    }
+    @media screen and (min-width : 319px) {
+        .blackmenu{
+            font-size:14px;
+            margin-left:0px;
+        }
+    }
+    @media screen and (min-width : 340px) {
+        .blackmenu{
+            font-size:15px;
+        }
+    }
+    @media screen and (min-width : 319px) {
+        .lgMenu{
+            position:absolute;
+            left:30px;
+            top:-40px;
+            width:290px;
+        }
+    }
+    @media screen and (min-width : 360px) {
+        .lgMenu{
+            position:absolute;
+            left:70px;
+            top:-36px;
+            width:270px;
+        }
+    }
+    @media screen and (min-width : 400px) {
+        .lgMenu{
+            position:absolute;
+            left:60px;
+            top:-35px;
+            width:320px;
+        }
+    }
+    @media screen and (min-width : 414px) {
+        .lgMenu{
+            position:absolute;
+            left:80px;
+            top:-31px;
+            width:320px;
+        }
+        .blackmenu{
+            margin-left:50px;
+        }
+    }
+    @media screen and (min-width : 450px) {
+        .lgMenu{
+            position:absolute;
+            left:90px;
+            top:-33px;
+            width:320px;
+        }
+    }
+    @media screen and (min-width : 475px) {
+        .lgMenu{
+            position:absolute;
+            left:110px;
+            top:-28px;
+            width:320px;
+        }
+    }
+    @media screen and (min-width : 500px) {
+        .lgMenu{
+            position:absolute;
+            left:120px;
+            top:-25px;
+            width:320px;
+        }
+    }
+    @media screen and (min-width : 525px) {
+        .lgMenu{
+            position:absolute;
+            left:130px;
+            top:-23px;
+            width:320px;
+        }
+    }
+    @media screen and (min-width : 550px) {
+        .lgMenu{
+            position:absolute;
+            left:140px;
+            top:-20px;
+            width:320px;
+        }
+    }
+    @media screen and (min-width : 568px) {
+        .lgMenu{
+            position:absolute;
+            left:155px;
+            top:-18px;
+            width:320px;
+        }
+        .blackmenu{
+            margin-left:100px;
+        }
+    }
+    @media screen and (min-width : 600px) {
+        .lgMenu{
+            position:absolute;
+            left:160px;
+            top:-15px;
+            width:320px;
+        }
+    }
+    @media screen and (min-width : 625px) {
+        .lgMenu{
+            position:absolute;
+            left:180px;
+            top:-15px;
+            width:420px;
+        }
+        .blackmenu{
+            margin-left:140px;
+        }
+    }
+    @media screen and (min-width : 650px) {
+        .lgMenu{
+            position:absolute;
+            left:190px;
+            top:-12px;
+            width:450px;
+        }
+    }
+    @media screen and (min-width : 667px) {
+        .lgMenu{
+            position:absolute;
+            left:210px;
+            top:-8px;
+            width:450px;
+        }
+        .blackmenu{
+            margin-left:160px;
+        }
+    }
+    @media screen and (min-width :700px) {
+        .lgMenu{
+            position:absolute;
+            left:210px;
+            top:-10px;
+            width:450px;
+        }
+    }
+    @media screen and (min-width :736px) {
+        .lgMenu{
+            position:absolute;
+            left:250px;
+            top:0px;
+            width:450px;
+        }
+        .blackmenu{
+            margin-left:180px;
+        }
+    }
+    /* iPads (landscape) ----------- */
+    @media screen and (min-width : 768px){
+        .lgMenu{
+            position:absolute;
+            width:650px;
+            left:80px;
+            top:8px;
+        }
+        #imgMyGaragePersonalPhoto{
+            height:150px;
+            width:150px;
+        }
+        .MyGaragePersonalPhoto{
+            top:210px;
+            left:140px;
+        }
+        .blackmenu{
+            margin-left:100px;
+        }
+    }
+    @media screen and (min-width : 790px){
+        #imgMyGaragePersonalPhoto{
+            height:150px;
+            width:150px;
+        }
+        .MyGaragePersonalPhoto{
+            top:230px;
+            left:140px;
+        }
+        .blackmenu{
+            margin-left:120px;
+        }
+    }
+    #projectName{
+        text-align:right;
+    }
+    #pageTitle{
+        align-content:center;
+        display:block;
+    }
+    @media screen and (min-width: 1024px) {
+        .lgMenu{
+            position:absolute;
+            left:200px;
+            top:27px;
+            width:800px;
+        }
+        .UpdateCoverPhoto{
+            top:320px;
+        }
+        #imgMyGaragePersonalPhoto{
+            height:180px;
+            width:180px;
+        }
+        .MyGaragePersonalPhoto{
+            top:260px;
+            left:150px;
+        }
+        .EditGaragePersonalPhoto{
+            top:320px;
+        }
+    }
+    /* Desktops and laptops ----------- */
+    @media screen and (min-width: 1224px) {
+        .lgMenu{
+            position:absolute;
+            left:300px;
+            top:60px;
+            width:100%;
+        }
+        .UpdateCoverPhoto{
+            top:380px;
+        }
+        #imgMyGaragePersonalPhoto{
+            height:220px;
+            width:220px;
+        }
+        .MyGaragePersonalPhoto{
+            top:300px;
+            left:150px;
+        }
+        .EditGaragePersonalPhoto{
+            top:380px;
+        }
+        .blackmenu{
+            margin-left:160px;
+        }
+    }
+    /* Desktops and laptops ----------- */
+    @media screen and (min-width: 1300px) {
+        .lgMenu{
+            position:absolute;
+            left:350px;
+            top:80px;
+            width:100%;
+        }
+        .UpdateCoverPhoto{
+            top:420px;
+        }
+        #imgMyGaragePersonalPhoto{
+            height:250px;
+            width:250px;
+        }
+        .MyGaragePersonalPhoto{
+            top:300px;
+            left:150px;
+        }
+        .EditGaragePersonalPhoto{
+            top:420px;
+        }
+        .blackmenu{
+            margin-left:180px;
+        }
+    }
+    @media screen and (min-width: 1599px) {
+        .lgMenu{
+            position:absolute;
+            left:350px;
+            top:80px;
+            width:100%;
+        }
+    }
+    /* Large screens ----------- */
+    @media screen and (min-width : 1824px) {
+        .lgMenu{
+            position:absolute;
+            left: 670px;
+            top: 110px;
+            width:100%;
+        }
+    }
+    .photoPagePics{
+        margin:5px;
+        margin-top:5px;
+        margin-bottom:5px;
+        margin-left:5px;
+        margin-right:5px;
+    }
+    .mdMenu{
+        position:absolute;
+        left:300px;
+        top:40px;
+        width:100%;
+    }
+    .smMenu{
+        position:absolute;
+        left:300px;
+        top:25px;
+        width:100%;
+    }
+    .xssmMenu{
+        position:absolute; 
+        left:60px;
+        top:-37px;
+        width:100%;
+    }
+    .xslgMenu{
+        position:absolute; 
+        left:170px;
+        top:-20px;
+        width:100%;
+    }
+    .i768Menu{
+        position:absolute; 
+        left:70px;
+        top:5px;
+        width:768px;
+    }
+    .i1024Menu{
+        position:absolute;
+        left:180px;
+        top:25px;
+        width:100%;
+    }
+    .i1920Menu {
+        position: absolute;
+        left: 670px;
+        top: 110px;
+        width: 100%;
+    }
+    .copyright { min-height:40px; background-color:black; }
+    .titlebar {min-height:60px; background-color:#d8d8d8}
+    .siteTitle{
+        color:black;
+        text-align:center;
+        width:100%;
+    }
+    .copyright p { text-align:left; color:#FFF; padding:10px 0; margin-bottom:0px; }
+    @media screen {
+        .copyright arr{
+            visibility: hidden;
+        }
+    }
+    @media screen and (min-width : 360px){
+        .copyright arr{
+            visibility: visible;
+        }
+    }
+    .heading7 { font-size:21px; font-weight:700; color:#d9d6d6; margin-bottom:22px;}
+    .post p { font-size:12px; color:#FFF; line-height:20px;}
+    .post p span { display:block; color:#8f8f8f;}
+    .bottom_ul { list-style-type:none; float:right; margin-bottom:0px;}
+    .bottom_ul li { float:left; line-height:40px;}
+    .bottom_ul li#cont:after { content:"/"; color:#FFF; margin-right:8px; margin-left:8px;}
+    .bottom_ul li a { color:#FFF;  font-size:12px;}
+    @media screen and (max-width : 340px) {
+        .copyright {
+            height: 20px;
+        }
+    }
+    .blueButton{
+        width: 240px;
+        height: 49px;
+        font-size:18px;
+        margin:3px;
+    }
+    .greyButton{
+        width: 240px;
+        height: 49px;
+        font-size:18px;
+        background-color:#d8d8d8;
+        color:black;
+        margin:3px;
+    }
+    .greenButton{
+        width: 240px;
+        height: 49px;
+        font-size:18px;
+        background-color:#004225;
+        color: black;
+        margin:3px;
+    }
+    .silverBackground{
+        background-color:silver;
+    }
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+        width: 100%;
+        margin: auto;
+    }
+
+
+    .carousel-fade .carousel-inner .item {
+        opacity: 0;
+        transition-property: opacity;
+    }
+
+    .carousel-fade .carousel-inner .active {
+        opacity: 1;
+    }
+
+    .carousel-fade .carousel-inner .active.left,
+    .carousel-fade .carousel-inner .active.right {
+        left: 0;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .carousel-fade .carousel-inner .next.left,
+    .carousel-fade .carousel-inner .prev.right {
+        opacity: 1;
+    }
+
+    .carousel-fade .carousel-control {
+        z-index: 2;
+    }
+
+    /*
+        WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+        Need to override the 3.3 new styles for modern browsers & apply opacity
+    */
+    @media all and (transform-3d), (-webkit-transform-3d) {
+        .carousel-fade .carousel-inner > .item.next,
+        .carousel-fade .carousel-inner > .item.active.right {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+        }
+        .carousel-fade .carousel-inner > .item.prev,
+        .carousel-fade .carousel-inner > .item.active.left {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+        }
+        .carousel-fade .carousel-inner > .item.next.left,
+        .carousel-fade .carousel-inner > .item.prev.right,
+        .carousel-fade .carousel-inner > .item.active {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+        }
+    }
+    .menuBackground 
+    { 
+        height:40px; 
+        background-color:#f5f5f5; 
+    }
+.group-title {
+    font-weight: bold;
+}
+
+.button-size {
+    height: 18px;
+    font-size: 10px;
+}
+
+.button-grey {
+    color: darkgray;
+}
+
+.max-size {
+    width: 100%;
+}
+
+.hiddenForm {
+    visibility: hidden;
+}
+
+.errorMessage {
+    color: red;
+}
+
+.modal_btn {
+    width: 50px;
+    font-size: 12px;
+    border-bottom: 5px hidden;
+}
+.custbtn {
+    border: 1px solid grey;
+}
+.custbtn:hover {
+    background-color: #ffffff;
+    /*color: white;*/
+}
+.success {
+    margin-top: 8px;
+    margin-right: 8px;
+    font-weight: 800;
+    color: green;
+}
+.fail {
+    margin-top: 8px;
+    margin-right: 8px;
+    font-weight: 800;
+    color: red;
+}

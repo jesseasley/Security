@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <!--<meta http-equiv="refresh" content="0;URL='http://garageregistry.com/'" />  -->
+    <title>Security Tester</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="robots" content="index,follow" />
+    <meta name="Accept-Encoding" content="gzip" />
+    <meta name="keywords" content="auto, car, photo, photography, pictures deb design NorthTexasWebsiteDesign.com" />
+    <script type="text/javascript" src="js/script.js"></script>
+    <script>
+        var $xml;
+        function testAccess() {
+            $("#results").html("working...");
+            login($("#users option:selected").text(), $("#users").val());
+            if (hasRight($("#entity").val(), $("#role").val(), $("#right").val()) == "1") {
+                //alert($("#users").val() + "\n" + $("#entity").val() + "\n" +
+                //    $("#role").val() + "\n" + $("#right").val() + "\nuser has rights");
+                $("#results").html("User has this right.");
+            }
+            else {
+                //alert($("#users").val() + "\n" + $("#entity").val() + "\n" +
+                //    $("#role").val() + "\n" + $("#right").val() + "\nuser does not have this right");
+                $("#results").html("User does not have this right.<br>" +
+                $xml.find("Message").attr("text"));
+            }
+        }
+        function login(email, password) {
+            $.ajax({
+                type: "GET",
+                async: false,
+                url: "login.php",
+                data: "email=" + email + "&password=" + password,
+                success: function (data) {
+                    //alert("login: " + data);
+                    //doc = $.parseXML(data);
+                    $xml = $($.parseXML(data));
+                    //$entity = $xml.find("Entity");
+                    //entityName = $entity.attr("name");
+                    //$role = $entity.children(0);
+                    //roleName = $role.attr("name");
+                    //$rights = $role.children(0);
+                    //$attr = $rights[0].attributes;
+                    //numberofAttributes = $rights[0].attributes.length;
+                    //alert(numberofAttributes);
+                    //val = $xml.find("Admin").attr("name").text();
+                    //$rights = $xml.find("EditUsers");
+                },
+                error: function (j, err) {
+                    alert("error logging in: " + j.status);
+                }
+            }).fail(function () {
+                alert("AJAX Call failed on login");
+            });
+        }
+        function hasRight(entityName, roleName, rightName) {
+            $right = $xml.find("Entity[name='" + entityName + "']").find("Role[name='" + roleName + "']").find("Rights");
+            if ($right.attr(rightName) == undefined)
+                return "";
+            else
+                return $right.attr(rightName);
+        }
+    </script>
+</head>
+
+<body style="background-color:grey;">
+    <br />
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10" style="background-color:silver">
+            <br />
+            Select user:
+            <select id="users">
+                <option value="password1">jess@jesseasley.com</option>
+                <option value="password">cris@easleyrealty.com</option>
+            </select>
+            <br /><br />
+            Select entity:
+            <select id="entity">
+                <option value="site">site</option>
+                <option value="Kubra">Kubra</option>
+            </select>
+            <br /><br />
+            Select role:
+            <select id="role">
+                <option value="Admin">Admin</option>
+                <option value="QA">QA</option>
+            </select>
+            <br /><br />
+            Select right:
+            <select id="right">
+                <option value="EditUsers">EditUsers</option>
+                <option value="EditRoles">EditRoles</option>
+                <option value="EditProjects">EditProjects</option>
+                <option value="EditIssues">EditIssues</option>
+                <option value="EditCompanies">EditCompanies</option>
+                <option value="CreateProjects">CreateProjects</option>
+                <option value="CreateCompanies">CreateCompanies</option>
+                <option value="CloseIssues">CloseIssues</option>
+                <option value="AssignRoles">AssignRoles</option>
+                <option value="AddUsers">AddUsers</option>
+                <option value="AddIssues">AddIssues</option>
+            </select>
+            <br /><br />
+            <button type="button" onclick="testAccess();">Test access</button>
+            <br /><br />
+            <div class="panel">
+                Results: <div id="results">&nbsp;</div>
+            </div>
+
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+</body>
+</html>

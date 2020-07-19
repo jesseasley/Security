@@ -1,0 +1,565 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <!--<meta http-equiv="refresh" content="0;URL='http://garageregistry.com/'" />  -->
+    <title>Security Maintenance</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="538522-lock_512x512.png" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <meta name="robots" content="index,follow" />
+    <meta name="Accept-Encoding" content="gzip" />
+    <meta name="keywords" content="auto, car, photo, photography, pictures deb design NorthTexasWebsiteDesign.com" />
+    <script type="text/javascript" src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <br />
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="nav nav-tabs">
+                <li class="active" >
+                    <a data-toggle="tab" href="#entitySetup">
+                        <label>Entity Setup</label>
+                    </a>
+                </li>
+                <li onclick="showRoles();">
+                    <a data-toggle="tab" href="#roleSetup">
+                        <label>Role Setup</label>
+                    </a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#userSetup">
+                        <label>User Setup</label>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--<div id="dualRightsModal" class="modal fade">
+        <div class="modal-dialog" style="min-width:30%;max-width:100%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <label id="dualRightsModal_Header"></label>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <table width="100%">
+                                <tr>
+                                    <td width="40%">
+                                        <label>All Rights</label>
+                                        <select id="AllRights" size="15" class="max-size" ondblclick="moveOneRightRight();"></select>
+                                    </td>
+                                    <td width="20%">
+                                        <center>
+                                            <button class="btn modal_btn" onclick="moveAllRightsRight();">>></button><br /><br />
+                                            <button class="btn modal_btn" onclick="moveOneRightRight();">></button><br /><br />
+                                            <button class="btn modal_btn" onclick="moveOneRightLeft();"><</button><br /><br />
+                                            <button class="btn modal_btn" onclick="moveAllRightsLeft();"><<</button>
+                                        </center>
+                                    </td>
+                                    <td width="40%">
+                                        <label>Selected Rights</label>
+                                        <select id="SelectedRights" size="15" class="max-size" ondblclick="moveOneRightLeft();"></select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12 pull-right">
+                            <button class="btn btn-primary"
+                                    onclick="saveUser($('#NewUserModal_ID').val(),
+                                    $('#NewUserModal_Email').val(),
+                                    $('#NewUserModal_Password').val(), '1', '0');">
+                                Save
+                            </button>
+                            <button class="btn btn-primary"
+                                    onclick="closeDualRightsModal();">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div id="loginForm" class="modal fade">
+        <div class="modal-dialog" style="min-width:30%;max-width:100%;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <h3 class="modal-title">Login</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-3"><label>Email:</label></div>
+                            <div class="col-lg-9">
+                                <input type="email" class="form-control"
+                                       id="loginForm_Email" value="jess@jesseasley.com" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-3"><label>Password:</label></div>
+                            <div class="col-lg-9">
+                                <input type="password" class="form-control"
+                                       id="loginForm_Password" value="password" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div id="loginForm_Message" class="errorMessage"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="pull-right col-lg-12">
+                            <button id="loginForm_Login" class="btn btn-primary"
+                                    onclick="loginForm_Login($('#loginForm_Email').val(),
+                                    $('#loginForm_Password').val());">
+                                Login
+                            </button>
+                            <button id="loginForm_Cancel" class="btn"
+                                    onclick="loginForm_CancelLogin();">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="tab-content">
+                <br />
+                <div id="entitySetup" class="tab-pane fade active">
+                    <div class="col-lg-1"></div>
+                    <div class="col-lg-3">
+                        <div id="SelectEntityToManage" class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-lg-12"><label>Select Entity to Manage</label></div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="max-size">
+                                            <tr>
+                                                <td class="group-title">Entities:</td>
+                                                <td align="right">
+                                                    <button id="btnEditTabEntity" class="button-size custbtn"
+                                                            onclick="showEditEntityModal();">
+                                                        <b>Edit</b>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <select id="TabEntity" class="max-size form-control" onchange="entitySelected()">
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="AddNewEntity" class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-lg-12"><label>Add New Entity</label></div>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <table class="max-size">
+                                            <tr>
+                                                <td class="group-title">Entity Name:</td>
+                                                <td align="right">
+                                                    <button id="btnAddBlankEntity" class="button-size custbtn"
+                                                            onclick="addEntity();"
+                                                            title="Add new blank entity">
+                                                        <b>Add</b>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <input id="AddNewEntity_EntityName" type="text" class="form-control"
+                                               onkeyup="changeAddNewEntity_EntityName();" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="userSetup" class="tab-pane fade">
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-12 panel">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Permissions Summary
+                                </div>
+                                <div class="panel-body">
+                                    <div id="permissionsSummary"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="roleSetup" class="tab-pane fade">
+                    <div class="row">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-3">
+                            <div id="SelectRoleToManage" class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-lg-12"><label>Select Role to Manage</label></div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table class="max-size">
+                                                <tr>
+                                                    <td class="group-title">Entities:</td>
+                                                    <td align="right">
+                                                        <!--<button id="btnAddEntity" class="button-size button-grey"
+                                                                onclick="showNewEntityModal();" disabled>
+                                                            <b>Add</b>
+                                                        </button>
+                                                        <button id="btnEditEntity" class="button-size button-grey"
+                                                                onclick="showEditEntityModal();" disabled>
+                                                            <b>Edit</b>
+                                                        </button>-->
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <select id="Entity" class="max-size form-control" onchange="entitySelected()"
+                                                    disabled></select>
+                                            <br>
+                                            <br>
+                                            <table class="max-size">
+                                                <tr>
+                                                    <td class="group-title">Roles:</td>
+                                                    <td align="right">
+                                                        <!--<button id="btnAddRole" class="button-size button-grey" disabled>
+                                                            <b>Add</b>
+                                                        </button>-->
+                                                        <button id="btnEditRole" class="button-size custbtn"
+                                                                disabled title="Edit role name"
+                                                                onclick="showEditRoleModal();">
+                                                            <b>Edit</b>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <select id="Role" class="max-size form-control" onchange="roleSelected()"
+                                                    disabled></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="AddNewRole" class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-lg-12"><label><div id="addNewRoleHeading"></div></label></div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table class="max-size">
+                                                <tr>
+                                                    <td class="group-title">Role Name:</td>
+                                                    <td align="right">
+                                                        <button id="btnAddBlankRole" class="button-size custbtn"
+                                                                onclick="addRole('0');"
+                                                                title="Add new blank role">
+                                                            <b>Add</b>
+                                                        </button>
+                                                        <!--<button id="btnEditEntity" class="button-size button-grey"
+                                                                onclick="showEditEntityModal();" disabled>
+                                                            <b>Edit</b>
+                                                        </button>-->
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <input id="AddNewRole_RoleName" type="text" class="form-control"
+                                                   onkeyup="changeAddNewRole_RoleName();" />
+                                            <br>
+                                            <br>
+                                            <table class="max-size">
+                                                <tr>
+                                                    <td class="group-title">Model Role After:</td>
+                                                    <td align="right">
+                                                        <button id="btnAddModelRole" class="button-size custbtn"
+                                                                onclick="addRole(
+                                                                $('#AddNewRole_ModelRole option:selected').val());"
+                                                                title="Add new role based on the model selected">
+                                                            <b>Add</b>
+                                                        </button>
+                                                        <!--<button id="btnEditRole" class="button-size button-grey" disabled>
+                                                            <b>Edit</b>
+                                                        </button>-->
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <select id="AddNewRole_ModelRole" class="max-size form-control"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-6">
+                            <div id="RightsDualList" class="panel panel-default">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label id="roleRights_Header"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <table width="100%">
+                                                <tr>
+                                                    <td id="tblAllRights" width="40%">
+                                                        <label>All Rights</label>
+                                                        <select id="AllRoleRights" size="15"
+                                                                class="max-size form-control"
+                                                                ondblclick="moveOneRoleRightRight();"></select>
+                                                    </td>
+                                                    <td id="tblButtons" width="20%">
+                                                        <center>
+                                                            <button class="btn custbtn modal_btn"
+                                                                    onclick="moveAllRoleRightsRight();"
+                                                                    title="Select all">
+                                                                >>
+                                                            </button>
+                                                            <br /><br />
+                                                            <button class="btn custbtn modal_btn"
+                                                                    onclick="moveOneRoleRightRight();"
+                                                                    title="Select the selected right">
+                                                                >
+                                                            </button>
+                                                            <br /><br />
+                                                            <button class="btn custbtn modal_btn"
+                                                                    onclick="moveOneRoleRightLeft();"
+                                                                    title="Deselect the selected right">
+                                                                <
+                                                            </button>
+                                                            <br /><br />
+                                                            <button class="btn custbtn modal_btn"
+                                                                    onclick="moveAllRoleRightsLeft();"
+                                                                    title="Deselect all">
+                                                                <<
+                                                            </button>
+                                                        </center>
+                                                    </td>
+                                                    <td id="tblSelectedRights" width="40%">
+                                                        <label>Selected Rights</label>
+                                                        <select id="SelectedRoleRights" size="15"
+                                                                class="max-size form-control"
+                                                                ondblclick="moveOneRoleRightLeft();"></select>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <button id="btnSaveRoleRights" class="btn custbtn pull-right"
+                                                    onclick="saveRoleRights();"
+                                                    title="Save the selected rights for this role">
+                                                Save Changes
+                                            </button>
+                                            <span id="msgSaveRoleRights" class="pull-right"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="NewUserModal">
+        <div class="modal-dialog" style="min-width:30%;max-width:100%;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title" id="NewUserModal_Title">New User</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div id="systemMessage" class="col-lg-12" style="display:inline-block;">
+                                <input type="hidden" class="form-control" id="NewUserModal_ID" />
+                                <label>Email:</label>
+                                <input type="email" class="form-control" id="NewUserModal_Email" />
+                                <label>Password:</label>
+                                <input type="password" class="form-control" id="NewUserModal_Password" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12 pull-right">
+                            <button class="btn btn-primary"
+                                    onclick="saveUser($('#NewUserModal_ID').val(),
+                                    $('#NewUserModal_Email').val(),
+                                    $('#NewUserModal_Password').val(), '1', '0');">
+                                Save
+                            </button>
+                            <button id="NewUserModal_DisableButton" class="btn btn-primary"
+                                    onclick="saveUser($('#NewUserModal_ID').val(),
+                                    $('#NewUserModal_Email').val(),
+                                    $('#NewUserModal_Password').val(), '0', '0');">
+                                Disable
+                            </button>
+                            <button id="NewUserModal_EnableButton" class="btn btn-primary"
+                                    onclick="saveUser($('#NewUserModal_ID').val(),
+                                    $('#NewUserModal_Email').val(),
+                                    $('#NewUserModal_Password').val(), '1', '0');">
+                                Enable
+                            </button>
+                            <button id="NewUserModal_DeleteButton" class="btn btn-primary"
+                                    onclick="saveUser($('#NewUserModal_ID').val(),
+                                    $('#NewUserModal_Email').val(),
+                                    $('#NewUserModal_Password').val(), '1', '1');">
+                                Delete
+                            </button>
+                            <button class="btn btn-primary"
+                                    onclick="closeNewUserModal();">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="PopupMessage">
+        <div class="modal-dialog" style="min-width:30%;max-width:100%;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">System Message</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <div class="row">
+                        <div id="messagePopupMessage" class="col-lg-12" style="display:inline-block;">
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12 pull-right">
+                            <button class="btn btn-primary"
+                            onclick="$('#PopupMessage').modal('hide');">
+                            OK
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="MultiUseModal">
+        <div class="modal-dialog" style="min-width:30%;max-width:100%;">
+            <div class="modal-content">
+                <!-- header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title" id="MultiUseModal_Title">New User</h3>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div id="systemMessage" class="col-lg-12" style="display:inline-block;">
+                                <input type="hidden" class="form-control" id="MultiUseModal_Type" />
+                                <input type="hidden" class="form-control" id="MultiUseModal_ID" />
+                                <input type="hidden" class="form-control" id="MultiUseModal_Active" />
+                                <label>Name:</label>
+                                <input type="email" class="form-control" id="MultiUseModal_Name" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-12 pull-right">
+                            <button class="btn btn-primary"
+                                    onclick="saveMultiUseModal($('#MultiUseModal_Type').val(),
+                                $('#MultiUseModal_ID').val(),
+                                $('#MultiUseModal_Name').val(),
+                                $('#MultiUseModal_Active').val(), '0');">
+                                Save
+                            </button>
+                            <button id="MultiUseModal_DisableButton" class="btn btn-primary"
+                                    onclick="saveMultiUseModal($('#MultiUseModal_Type').val(),
+                                $('#MultiUseModal_ID').val(),
+                                $('#MultiUseModal_Name').val(), '0', '0');">
+                                Disable
+                            </button>
+                            <button id="MultiUseModal_EnableButton" class="btn btn-primary"
+                                    onclick="saveMultiUseModal($('#MultiUseModal_Type').val(),
+                                $('#MultiUseModal_ID').val(),
+                                $('#MultiUseModal_Name').val(), '1', '0');">
+                                Enable
+                            </button>
+                            <button id="MultiUseModal_DeleteButton" class="btn btn-primary"
+                                    onclick="saveMultiUseModal($('#MultiUseModal_Type').val(),
+                                $('#MultiUseModal_ID').val(),
+                                $('#MultiUseModal_Name').val(),,
+                                $('#MultiUseModal_Active').val(), '1');">
+                                Delete
+                            </button>
+                            <button class="btn btn-primary"
+                                    onclick="closeMultiUseModal();">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

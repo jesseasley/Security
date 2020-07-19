@@ -1,0 +1,37 @@
+﻿
+﻿<root>
+    <Users>
+        <User ID='1' Email='jess@jesseasley.com' Password='password' ImagePath='' Active='1' />
+        <User ID='2' Email='cris@easleyrealty.com' Password='password' ImagePath='' Active='1' />
+    </Users>
+    <Roles>
+        <Role ID='1' Name='Admin' Active='1' />
+        <Role ID='2' Name='QA' Active='1' />
+    </Roles>
+    <Rights>
+        <Right ID='1' Name='AddUsers' Active='1' />
+        <Right ID='2' Name='EditUsers' Active='1' />
+        <Right ID='3' Name='AssignRoles' Active='1' />
+        <Right ID='4' Name='EditRoles' Active='1' />
+        <Right ID='5' Name='CreateProjects' Active='1' />
+        <Right ID='6' Name='EditProjects' Active='1' />
+        <Right ID='7' Name='AddIssues' Active='1' />
+        <Right ID='8' Name='EditIssues' Active='1' />
+        <Right ID='9' Name='CloseIssues' Active='1' />
+        <Right ID='10' Name='CreateCompanies' Active='1' />
+        <Right ID='11' Name='EditCompanies' Active='1' />
+    </Rights>
+    <Entities>
+        <Entity ID='1' Name='site' Active='1'>
+            <Roles>
+                <Role ID='1' Name='Admin' Active='1' />
+            </Roles>
+        </Entity>
+        <Entity ID='2' Name='Kubra' Active='1'>
+            <Roles>
+                <Role ID='1' Name='Admin' Active='1' />
+                <Role ID='2' Name='QA' Active='1' />
+            </Roles>
+        </Entity>
+    </Entities>
+</root>
